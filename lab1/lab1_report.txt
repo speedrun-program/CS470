@@ -1,0 +1,259 @@
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+cp:
+
+the cp command copies a file's contents to another file, or copies files to a directory.
+
+examples:
+
+cp file1.txt file2.txt
+- creates a file called "file2.txt" and copies file1.txt's contents to it.
+- if file2.txt already exists then its contents are overwritten.
+
+cp file1.txt file2.txt file3.txt example/
+- copies or overwrites file1.txt, file2.txt, file3.txt in the directory "example".
+
+cp source
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+ps:
+
+lists running processes
+
+examples:
+
+ps -e
+- list all processes.
+
+ps T
+- list all processes associated with the terminal.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+ls:
+
+lists files and directories in a directory.
+
+examples:
+
+ls
+- list files and directories from the current working directory in lexical order.
+
+ls subdirectory
+- list files and directories from "subdirectory" in lexical order.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+mv
+
+moves a file or files, or renames a file.
+
+examples:
+
+mv file1.txt file2.txt
+- renames file1.txt to "file2.txt".
+
+mv file1.txt file2.txt file3.txt example/
+- moves file1.txt, file2.txt, and file3.txt to the directory "example".
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+rm
+
+removes files and directories.
+
+examples:
+
+rm file1.txt
+- removes file1.txt.
+
+rm file1.txt file2.txt file3.txt
+- removes file1.txt, file2.txt, and file3.txt.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+mkdir
+
+makes a new directory.
+
+examples:
+
+mkdir example1/example2/example3/example4
+- makes a new directory called "example4" in the example3 directory.
+
+mkdir -p example1/example2/example3/example4
+- makes a new directory called "example4" in the example3 directory.
+- if any parent directories don't exist yet, make them too.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+rmdir
+
+removes an empty directory.
+
+examples:
+
+rmdir example1/example2/example3/example4
+- removes example4.
+
+rmdir -p example1/example2/example3/example4
+- removes example1/example2/example3/example4.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+echo
+
+outputs strings.
+
+examples:
+
+echo "example text"
+- outputs "example text" to the terminal.
+
+echo "appended text" >> test.txt
+- appends "appended text" to test.txt.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+more
+
+displays a limited amount of a file's text.
+
+examples:
+
+more test.txt
+- displays one terminal screen worth of text, then another line eqach time "enter" is pressed.
+
+more -s test.txt
+- same as above, but compresses multiple blank lines into a single blank line.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+date
+
+displays a date and time.
+
+examples:
+
+date
+- displays the current date and time.
+
+date --date="yesterday"
+- displays the date and time 24 hours ago.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+time
+
+displays the amount of time something took to execute.
+
+examples:
+
+time echo test
+- runs the command "echo test" and displays how long it took to execute.
+
+time ./example.sh
+- runs the example.sh bash script and displays how long it took to execute.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+kill
+
+sends a signal to a process.
+
+examples:
+
+kill -9 123
+- sends the SIGKILL signal to the process with PID 123.
+
+kill -15 123
+- sends the SIGTERM signal to the process with PID 123.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+history
+
+displays command history.
+
+examples:
+
+history
+- displays the last 1000 commands ran.
+
+history 5
+- displays the last 5 commands ran.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+chmod
+
+changes the access mode of a file.
+
+examples:
+
+chmod +x ./example.sh
+- makes it so the ./example.sh bash script is executable.
+
+chmod -x ./example.sh
+- makes it so the ./example.sh bash script is NOT executable.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+chown
+
+changes the owner of a file.
+
+examples:
+
+chown user file1.txt
+- sets user as the owner of file1.txt.
+
+chown user file1.txt file2.txt file3.txt
+- sets user as the owner of file1.txt, file2.txt, and file3.txt.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+

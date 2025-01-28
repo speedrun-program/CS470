@@ -1,0 +1,7 @@
+
+The script makes a new directory with the current date and time as its name.
+The script then makes 10 directories in that directory.
+In each of the 10 directories, the script makes 10 txt files.
+In each txt file, the name of a programming language is written.
+The script can be ran as a bash script from the terminal.
+
