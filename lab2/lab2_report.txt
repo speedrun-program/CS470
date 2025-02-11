@@ -1,0 +1,26 @@
+
+Introduction:
+This program uses C's fork function to make ten child processes.
+Each child process then executes a terminal command using C's execvp function.
+
+Summary:
+The program has an array of pointers to char array pointers, "char** args[]".
+The program uses a for-loop which goes through 10 iterations.
+In the for-loop, the parent process uses fork to create a child process.
+The child process then indexes args to get a pointer to an array of char
+array pointers, and it uses this for arguments to execvp.
+While this is happening, the parent process uses the wait function to wait
+for the current child process to finish, and then reports on the exit status
+of the child process.
+After 10 child processes have been created, the for-loop finishes and the
+parent process ends.
+
+results and observations:
+ A. child processes are created with fork and are then left alone to run.
+ B. the parent process waits for each child process to finish, then reports
+    on its exit status.
+
+conclusion:
+The program ran fine when I tested it, including when the terminal commands
+didn't work (e.g. couldn't find files or directories).
+
