@@ -51,7 +51,7 @@ void calculateWaitingTimeAndExecutionOrder(Process proc[], int n, int quantum) {
             
             done = 0;
             
-            // this is in the if block to avoid accessing OOB by programmer error
+            // OOB is checked in case of programmer error
             if (execution_order_idx < (sizeof(execution_order) / sizeof(execution_order[0]))) {
                 execution_order[execution_order_idx] = proc[i].process_id;
                 execution_order_idx += 1;

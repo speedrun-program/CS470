@@ -34,8 +34,10 @@ void srtf(Process proc[]) {
     int current_time = INT_MAX;
     int completed = 0;
     
-    // I couldn't figure out what this was supposed to be used for
-    // int prev = -1;
+    int prev = -1;
+    
+    int execution_order[1000] = {};
+    int execution_order_idx = 0;
 
     // Initialize waiting and turnaround times
     // and other things
@@ -55,6 +57,15 @@ void srtf(Process proc[]) {
     // Build the loop to execute processes in the queue list
     while (completed != n) {
         int index = findNextProcess(proc, current_time);
+        
+        // OOB is checked in case of programmer error
+        if (
+            prev != proc[index].process_id
+            && execution_order_idx < (sizeof(execution_order) / sizeof(execution_order[0]))) {
+            execution_order[execution_order_idx] = proc[index].process_id;
+            execution_order_idx += 1;
+            prev = proc[index].process_id;
+        }
         
         // all processes currently complete, so find the next arrival time
         if (index == -1) {
@@ -105,8 +116,14 @@ void srtf(Process proc[]) {
         combined_waiting_time += proc[i].waiting_time;
     }
     
+    printf("Execution Order: ");
+    printf("%d", execution_order[0]);
+    for (int i = 1; i < execution_order_idx; i++) {
+        printf(" -> %d", execution_order[i]);
+    }
+    
     printf(
-        "all processes finished at time %d.\naverage turnaround time: %f.\naverage waiting time: %f.\n\n",
+        "\n\nall processes finished at time %d.\naverage turnaround time: %f.\naverage waiting time: %f.\n\n",
         current_time,
         combined_turnaround_time / n,
         combined_waiting_time / n
