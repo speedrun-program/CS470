@@ -58,15 +58,6 @@ void srtf(Process proc[]) {
     while (completed != n) {
         int index = findNextProcess(proc, current_time);
         
-        // OOB is checked in case of programmer error
-        if (
-            prev != proc[index].process_id
-            && execution_order_idx < (sizeof(execution_order) / sizeof(execution_order[0]))) {
-            execution_order[execution_order_idx] = proc[index].process_id;
-            execution_order_idx += 1;
-            prev = proc[index].process_id;
-        }
-        
         // all processes currently complete, so find the next arrival time
         if (index == -1) {
             current_time = INT_MAX;
@@ -77,6 +68,15 @@ void srtf(Process proc[]) {
                     current_time = proc[i].arrival_time;
                 }
             }
+        }
+        
+        // OOB is checked in case of programmer error
+        if (
+            prev != proc[index].process_id
+            && execution_order_idx < (sizeof(execution_order) / sizeof(execution_order[0]))) {
+            execution_order[execution_order_idx] = proc[index].process_id;
+            execution_order_idx += 1;
+            prev = proc[index].process_id;
         }
         
         // Process found to execute
