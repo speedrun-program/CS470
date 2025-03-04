@@ -36,6 +36,8 @@ void calculateWaitingTimeAndExecutionOrder(Process proc[], int n, int quantum) {
             current_time = proc[i].arrival_time;
         }
     }
+    
+    printf("first process arrives at time %d.\n\n", current_time);
 
     // Keep traversing processes in round-robin manner until all of them are not done
     while (1) {
@@ -96,15 +98,21 @@ void calculateWaitingTimeAndExecutionOrder(Process proc[], int n, int quantum) {
 // Function to calculate turnaround times for all processes
 void calculateTurnaroundTime(Process proc[], int n) {
     
-    double combined_waiting_time = 0;
+    double combined_turnaround_time = 0.0;
+    double combined_waiting_time = 0.0;
     
     for (int i = 0; i < n; i++) {
         proc[i].turnaround_time = proc[i].completion_time - proc[i].arrival_time;
         proc[i].waiting_time = proc[i].turnaround_time - proc[i].burst_time;
+        combined_turnaround_time += proc[i].turnaround_time;
         combined_waiting_time += proc[i].waiting_time;
     }
     
-    printf("average waiting time: %f.\n\n", combined_waiting_time / n);
+    printf(
+        "average turnaround time: %f.\naverage waiting time: %f.\n\n",
+        combined_turnaround_time / n,
+        combined_waiting_time / n
+    );
 }
 
 void roundRobin(Process proc[], int n, int quantum) {

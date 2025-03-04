@@ -50,7 +50,7 @@ void srtf(Process proc[]) {
         }
     }
     
-    printf("first process arrives at time %d.\n", current_time);
+    printf("first process arrives at time %d.\n\n", current_time);
     
     // Build the loop to execute processes in the queue list
     while (completed != n) {
@@ -95,17 +95,20 @@ void srtf(Process proc[]) {
     }
     
     // printing some stats
+    double combined_turnaround_time = 0.0;
     double combined_waiting_time = 0.0;
     
     for (int i = 0; i < n; i++) {
         proc[i].turnaround_time = proc[i].completion_time - proc[i].arrival_time;
         proc[i].waiting_time = proc[i].turnaround_time - proc[i].burst_time;
+        combined_turnaround_time += proc[i].turnaround_time;
         combined_waiting_time += proc[i].waiting_time;
     }
     
     printf(
-        "all processes finished at time %d.\naverage waiting time: %f.\n\n",
+        "all processes finished at time %d.\naverage turnaround time: %f.\naverage waiting time: %f.\n\n",
         current_time,
+        combined_turnaround_time / n,
         combined_waiting_time / n
     );
 }
